@@ -1,21 +1,17 @@
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        if (nums.length <= 2)
+            return nums.length;
 
-import java.util.Arrays;
+        int k = 2;
 
-class Problem2 {
-    public int merge(int[] nums1, int m) {
-        nums1 = Arrays.stream(nums1)
-                .filter(n -> n != m)
-                .toArray();
+        for (int i = 2; i < nums.length; i++) { //checks the previour values.
+            if (nums[i] != nums[k - 2]) {
+                nums[k] = nums[i];
+                k++;
+            }
+        }
 
-        return nums1.length;
-        
-    }
-
-    public static void main(String[] args) {
-        int nums1[] = {1,4,3,4,35,35,6,4};
-        int m = 4; 
-        Problem2 obj = new Problem2();
-        int l = obj.merge(nums1, m);
-        System.out.println(l);
+        return k;
     }
 }
