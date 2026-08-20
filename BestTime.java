@@ -4,8 +4,8 @@ public class BestTime {
         int bp = prices[0], p, profit = 0;
         for (int i = 0; i < prices.length; i++) {
             p = prices[i];
-            if (bp > p) {
-                bp = p;
+            if (bp > p) { //buying price > current price
+                bp = p; //buying price = current price
                 System.out.println(bp);
             }
             profit = (profit > p - bp) ? profit : p-bp;
